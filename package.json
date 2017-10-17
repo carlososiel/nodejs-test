@@ -1,0 +1,22 @@
+{
+  "name": "nodejs-test",
+  "version": "1.0.0",
+  "description": "A test for ReignDesign job application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carlososiel/nodejs-test.git"
+  },
+  "author": "Carlos Osiel Rojas Velázquez <osiel8809@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carlososiel/nodejs-test/issues"
+  },
+  "homepage": "https://github.com/carlososiel/nodejs-test#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
