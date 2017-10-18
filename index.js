@@ -25,7 +25,7 @@ mongodb.connect(process.env.MONGODB_CONNECTION, (err, db) => {
     app.set('db', db);
 });
 
-schedule.scheduleJob('0 * * * *', indexer.index());
+schedule.scheduleJob('* 0 * * *', indexer.index());
 
 app.use('/', router);
 
