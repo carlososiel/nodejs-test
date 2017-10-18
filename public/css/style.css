@@ -1,0 +1,26 @@
+.content {
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.content a {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-bottom: 1px solid #cccccc;
+}
+
+.content a:hover {
+    text-decoration: none;
+    background-color: #fafafa;
+}
+
+.title, create-date {
+    color: #333333;
+    font-size: 13pt;
+}
+
+.author {
+    margin-left: 5px;
+    color: #999999;
+    font-size: 13pt;
+}
