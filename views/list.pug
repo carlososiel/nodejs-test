@@ -1,18 +1,18 @@
-extends index
+extends layout
 append head
-    body
-        div.banner
-            h1!= 'HN Feed'
-            h3!= 'We <3 hacker news!'
-            a(class='refresh-button', href='/index'): i.fa.fa-refresh  Refresh index
-        div.content
-            each feed in feeds
-                - var url = feed.story_url ? feed.story_url : feed.url
-                - var titleStory = feed.story_title ?  feed.story_title : feed.title
-                if titleStory
-                    div.row
-                        a(href=url).col-md-11.row
-                            span.col-md-7.title!= titleStory + '.'
-                            span.col-md-2.author!= '-' + feed.author + '-'
-                            span.col-md-2.created-date!= feed.created_at
-                        span.col-md-1.pull-right: a(class='button', href='feed/delete/' + feed.objectID): i.fa.fa-trash-o
+append body
+    div.banner
+        h1!= 'HN Feed'
+        h3!= 'We <3 hacker news!'
+        a(class='refresh-button', href='/index'): i.fa.fa-refresh  Refresh index
+    div.content
+        each feed in feeds
+            - var url = feed.story_url ? feed.story_url : feed.url
+            - var titleStory = feed.story_title ?  feed.story_title : feed.title
+            if titleStory
+                div.row
+                    a(href=url).col-md-11.row
+                        span.col-md-7.title!= titleStory + '.'
+                        span.col-md-2.author!= '-' + feed.author + '-'
+                        span.col-md-2.created-date!= feed.created_at
+                    span.col-md-1.pull-right: a(class='button', href='feed/delete/' + feed.objectID): i.fa.fa-trash-o

@@ -1,14 +1,7 @@
-html
-    #head
-        block head
-            title!= title
-            link(href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css', rel='stylesheet')
-            link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', rel='stylesheet')
-            link(href='/static/css/style.css', rel='stylesheet')
-            script(href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.js')
-    body
-        div.jumbotron
-            h1.display-3!= message
-            hr.my-4
-            p.lead
-                a(class='btn btn-primary btn-lg', href='/'): i.fa.fa-home  Go to the home page
+extends layout
+append body
+    div.jumbotron
+        h1.display-3!= message
+        hr.my-4
+        p.lead
+            a(class='btn btn-primary btn-lg', href='/'): i.fa.fa-home  Go to the home page
