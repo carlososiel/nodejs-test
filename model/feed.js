@@ -3,7 +3,7 @@ const Rx = require('rxjs')
     , app = require('../index');
 
 module.exports.list = () => {
-    return Rx.Observable.fromPromise(app.get('db').collection('feed').find({}).toArray());
+    return Rx.Observable.fromPromise(app.get('db').collection('feed').find({}).sort({created_at: -1}).toArray());
 };
 
 module.exports.findOne = (id) => {

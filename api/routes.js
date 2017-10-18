@@ -2,23 +2,25 @@
 
 const router = module.exports = require('express').Router()
     , _ = require('lodash')
+    , moment = require('moment')
     , indexer = require('../model/indexer')
     , feed = require('../model/feed');
 
 router.get('/', (req, res) => {
     feed.list().subscribe(data => {
             _.map(data, (feed) => {
-                let newDate = new Date(feed.created_at);
-                let now = new Date();
-                let diff = (now - newDate)/1000/60/60;
-                if (diff < 24) {
-                    feed.created_at = newDate.toLocaleString({hour: '2-digits', minute: '2-digits', hour12: true});
+                let newDate = moment(feed.created_at);
+                let now = moment();
+                let diff = now.diff(newDate, 'days');
+                //TODO cambiar por las fechas correctas
+                if (diff < 1 && newDate.date() === now.date()) {
+                    feed.created_at = newDate.format('hh:mm A');
                 }
-                else if(diff < 48) {
+                else if(diff < 2 && now.date() - newDate.date() === 1) {
                     feed.created_at = 'Yesterday';
                 }
                 else {
-                    feed.created_at = newDate.toLocaleString({day: 'numeric', month: 'short'});
+                    feed.created_at = newDate.format('MMM DD');
                 }
             });
             res.render('list.pug', {title: 'List of feeds', feeds: data});
