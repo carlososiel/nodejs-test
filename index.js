@@ -31,4 +31,4 @@ app.use('/', router);
 
 //Run the application in port 3000
 //TODO cambiar el puerto al 3000
-app.listen(3010, () => console.log('Application is running on http://127.0.0.1:3000'));
+app.listen(3000, () => console.log('Application is running on http://127.0.0.1:3000'));
