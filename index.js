@@ -4,7 +4,9 @@ const express = require('express')
     , app = module.exports = express()
     , path = require('path')
     , mongodb = require('mongodb')
-    , router = require('./api/routes');
+    , schedule = require('node-schedule')
+    , router = require('./api/routes')
+    , indexer = require('./model/indexer');
 
 /**
  * Some configurations for the express app.
@@ -22,6 +24,8 @@ mongodb.connect(process.env.MONGODB_CONNECTION, (err, db) => {
     }
     app.set('db', db);
 });
+
+schedule.scheduleJob('0 * * * *', indexer.index());
 
 app.use('/', router);
 
