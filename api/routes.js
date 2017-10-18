@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
             _.map(data, (feed) => {
                 let newDate = new Date(feed.created_at);
                 let now = new Date();
-                let diff = (now - newDate)/1000/60/24;
+                let diff = (now - newDate)/1000/60/60;
                 if (diff < 24) {
                     feed.created_at = newDate.toLocaleString({hour: '2-digits', minute: '2-digits', hour12: true});
                 }
