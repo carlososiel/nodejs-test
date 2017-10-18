@@ -1,0 +1,18 @@
+html
+    head
+        title!= title
+        link(href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css', rel='stylesheet')
+        link(href='/static/css/style.css', rel='stylesheet')
+        script(href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.js')
+    body
+        div.content
+            each feed in feeds
+                - var url = feed.story_url ? feed.story_url : feed.url
+                - var titleStory = feed.story_title ?  feed.story_title : feed.title
+                if titleStory
+                    a(href=url).row
+                        span.col-md-4.title!= titleStory + '.'
+                        span.col-md-2.author!= '-' + feed.author + '-'
+                        span.col-md-offset-2.col-md-2.create-date!= feed.created_at
+                        span.col-md-2
+                            a(class= 'btn btn-primary', href='feed/delete/' + feed.objectID) Delete
